@@ -18,8 +18,10 @@
     text-align: center;
     font-family: Arial;
     border-radius: 15px;
-    background-color: rgb(224, 220, 220);
-    border-top: 28px solid #FFDC40; 
+    /* background-color: rgb(224, 220, 220); */
+    background-color: white;
+    border: rgb(231, 226, 226) 1px solid;
+    border-top: 28px solid #FFDC40;
 
 }
 
@@ -86,6 +88,8 @@
     transition: all 0.3s ease-in-out;
     cursor: pointer;
     transform: rotate(90deg);
+    background-color: #A84AE9;
+    color: white;
 }
 
 

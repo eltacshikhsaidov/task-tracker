@@ -15,21 +15,14 @@ addTaskButton.addEventListener('click', () => {
     let task = taskInput.value;
     if(task !== ''){
         todoList.push(task);
-        let taskItem = document.createElement('p');
-        taskItem.classList.add('todo');
-        taskItem.innerHTML = task;
-        let removeTask = document.createElement('i');
-        removeTask.classList.add('fa', 'fa-times', 'delete');
-        taskItem.appendChild(removeTask);
-        taskList.appendChild(taskItem);
 
-        // Remove task
-        let deleteTask = document.querySelectorAll('.delete');
-            deleteTask.forEach(item => {
-                item.addEventListener('click', () => {
-                    item.parentElement.remove();
-            });
-        });
+        // Create task
+        createTask(task);
+
+        // Remove task when clicking 'x' icon
+        deleteTask();
+
+        // clear input bar after creating task
         taskInput.value = '';
     } else {
         let popup = document.getElementById('myPopup');
@@ -52,22 +45,10 @@ addTaskButton.addEventListener('click', () => {
 
             // Iterate sorted items and display them
             todoList.forEach(item => {
-                let taskItem = document.createElement('p');
-                taskItem.classList.add('todo');
-                taskItem.innerHTML = item;
-                let removeTask = document.createElement('i');
-                removeTask.classList.add('fa', 'fa-times', 'delete');
-                taskItem.appendChild(removeTask);
-                taskList.appendChild(taskItem);
-
-                // Remove task
-                let deleteTask = document.querySelectorAll('.delete');
-                    deleteTask.forEach(item => {
-                        item.addEventListener('click', () => {
-                            item.parentElement.remove();
-                    });
-                });
+                createTask(item);
+                deleteTask();
             });
+
         } else {
             sort.classList.remove('fa-sort-amount-desc');
             sort.classList.add('fa-sort-amount-asc');
@@ -80,22 +61,40 @@ addTaskButton.addEventListener('click', () => {
 
             // Iterate sorted items and display them
             todoList.forEach(item => {
-                let taskItem = document.createElement('p');
-                taskItem.classList.add('todo');
-                taskItem.innerHTML = item;
-                let removeTask = document.createElement('i');
-                removeTask.classList.add('fa', 'fa-times', 'delete');
-                taskItem.appendChild(removeTask);
-                taskList.appendChild(taskItem);
+                // Create task
+                createTask(item);
 
-                // Remove task
-                let deleteTask = document.querySelectorAll('.delete');
-                    deleteTask.forEach(item => {
-                        item.addEventListener('click', () => {
-                            item.parentElement.remove();
-                    });
-                });
+                // Remove task when clicking 'x' icon
+                deleteTask();
             });
         }
     });
 });
+
+
+// Delete task
+function deleteTask() {
+    let deleteTask = document.querySelectorAll('.delete');
+    deleteTask.forEach(item => {
+        item.addEventListener('click', () => {
+            let index = todoList.indexOf(item.parentElement.innerText);
+            console.log(todoList);
+            if (index > -1) {
+                console.log(index);
+                todoList.splice(index, 1);
+            }
+            item.parentElement.remove();
+        });
+    });
+}
+
+// Create task
+function createTask(item) {
+    let taskItem = document.createElement('p');
+    taskItem.classList.add('todo');
+    taskItem.innerHTML = item;
+    let removeTask = document.createElement('i');
+    removeTask.classList.add('fa', 'fa-times', 'delete');
+    taskItem.appendChild(removeTask);
+    taskList.appendChild(taskItem);
+}
