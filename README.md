@@ -8,7 +8,7 @@ Task tracker program for algoritmika course. Module 2
 - add task
 
 # Project link
-<a href="https://eltacshikhsaidov.github.io/task-tracker/">task tracker</a>
+<a href="https://task-tracker001.netlify.app/">task tracker</a>
 
 # User Interface (UI)
 ## Default view
