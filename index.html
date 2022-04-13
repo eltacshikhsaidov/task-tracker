@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+    <!-- application start -->
+
+    <div class="application-holder">
+        <div class="application">
+            <div class="title">
+                <h1>To-Do List</h1>
+            </div>
+            <div class="sort">
+                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+            </div>
+            <div class="input-bar">
+                <input id="taskInput" type="text" name="taskInput" placeholder="" value="" />
+                <button id="taskClear" type="submit" name="taskClear">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+
+                <!-- Show popup in case empty task is added -->
+                <div class="popup">
+                    <span class="popuptext" id="myPopup">Please add some task!</span>
+                </div>
+            </div>
+
+            <!-- we will add todos in this list -->
+            <div class="todos">
+                
+            </div>
+
+            <!-- add button -->
+            <div class="button">
+                <button id="addTaskButton">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- application end -->
+    
+
+    <!-- javascript -->
+    <script src="./js/script.js"></script>
+</body>
+</html>
