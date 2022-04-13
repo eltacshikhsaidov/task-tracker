@@ -15,49 +15,47 @@
 
     <!-- application start -->
 
-    <div id="particles-js">
-        <div class="application-holder">
-            <div class="application">
-                <div class="title">
-                    <h1>To-Do List</h1>
-                </div>
-                <div class="sort">
-                    <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
-                </div>
-                <div class="input-bar">
-                    <input id="taskInput" type="text" name="taskInput" placeholder="" value="" />
-                    <button id="taskClear" type="submit" name="taskClear">
-                        <i class="fa fa-times" aria-hidden="true"></i>
-                    </button>
+    <div class="application-holder">
+        <div class="application">
+            <div class="title">
+                <h1>To-Do List</h1>
+            </div>
+            <div class="sort">
+                <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+            </div>
+            <div class="input-bar">
+                <input id="taskInput" type="text" name="taskInput" placeholder="" value="" />
+                <button id="taskClear" type="submit" name="taskClear">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
     
-                    <!-- Show popup in case empty task is added -->
-                    <div class="popup">
-                        <span class="popuptext" id="myPopup">Please add some task!</span>
-                    </div>
-                </div>
-    
-                <!-- we will add todos in this list -->
-                <div class="todos" draggable="true" ondragstart="onDragStart(event)">
-    
-                </div>
-    
-                <!-- add button -->
-                <div class="button">
-                    <button id="addTaskButton">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        Add
-                    </button>
+                <!-- Show popup in case empty task is added -->
+                <div class="popup">
+                    <span class="popuptext" id="myPopup">Please add some task!</span>
                 </div>
             </div>
     
-            <div class="application done">
-                <div class="title">
-                    <h1>Done</h1>
-                </div>
+            <!-- we will add todos in this list -->
+            <div class="todos" draggable="true" ondragstart="onDragStart(event)">
     
-                <div class="todos" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            </div>
+    
+            <!-- add button -->
+            <div class="button">
+                <button id="addTaskButton">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+    
+        <div class="application done">
+           <div class="title">
+                <h1>Done</h1>
+            </div>
+    
+           <div class="todos" ondragover="onDragOver(event);" ondrop="onDrop(event);">
                 
-                </div>
             </div>
         </div>
     </div>
@@ -68,7 +66,5 @@
     <!-- javascript -->
     <script src="./js/script.js"></script>
 
-    <!-- particles.js script -->
-    <script src=”https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js"></script>
 </body>
 </html>
