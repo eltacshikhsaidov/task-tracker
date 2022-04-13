@@ -1,3 +1,40 @@
+// Disable inspect option for browser
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('inspect option is disabled!')
+});
+
+document.onkeydown = function (e) {
+    // disable F12 key
+    if(e.keyCode == 123) {
+        alert('F12 disabled!')
+        return false;
+    }
+    // disable U key
+    if(e.ctrlKey && e.keyCode == 85) {
+        alert('ctrl+U disabled!');
+        return false;
+    }
+}
+
+// Drag and drop source code: https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js
+function onDragStart(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function onDragOver(event) {
+    event.preventDefault();
+}
+
+function onDrop(event) {
+    const id = event.dataTransfer.getData("text");
+    const draggableElement = document.getElementById(id);
+    draggableElement.style.backgroundColor = '#94ee71';
+    const dropzoneElement = event.target;
+    dropzoneElement.appendChild(draggableElement);
+    event.dataTransfer.clearData();
+}
+
 let taskClear = document.querySelector('#taskClear');
 let taskInput = document.querySelector('#taskInput');
 let sort = document.querySelector('.sort>i');
@@ -92,6 +129,13 @@ function deleteTask() {
 function createTask(item) {
     let taskItem = document.createElement('p');
     taskItem.classList.add('todo');
+
+    // drag and drop
+    taskItem.draggable = "true";
+    // taskItem.ondragstart = "drag(event)";
+    taskItem.id = 'task' + todoList.indexOf(item);
+
+
     taskItem.innerHTML = item;
     let removeTask = document.createElement('i');
     removeTask.classList.add('fa', 'fa-times', 'delete');

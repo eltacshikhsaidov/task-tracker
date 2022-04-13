@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
     <!-- application start -->
 
     <div class="application-holder">
@@ -29,18 +28,18 @@
                 <button id="taskClear" type="submit" name="taskClear">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
-
+    
                 <!-- Show popup in case empty task is added -->
                 <div class="popup">
                     <span class="popuptext" id="myPopup">Please add some task!</span>
                 </div>
             </div>
-
+    
             <!-- we will add todos in this list -->
-            <div class="todos">
-                <!-- <p class="todo"><i class="fa fa-times delete"></i></p> -->
+            <div class="todos" draggable="true" ondragstart="onDragStart(event)">
+    
             </div>
-
+    
             <!-- add button -->
             <div class="button">
                 <button id="addTaskButton">
@@ -49,12 +48,23 @@
                 </button>
             </div>
         </div>
+    
+        <div class="application done">
+           <div class="title">
+                <h1>Done</h1>
+            </div>
+    
+           <div class="todos" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+                
+            </div>
+        </div>
     </div>
 
+
     <!-- application end -->
-    
 
     <!-- javascript -->
     <script src="./js/script.js"></script>
+
 </body>
 </html>

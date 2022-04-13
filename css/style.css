@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
+
+/* background */
+
+body {
+    background-image: linear-gradient(to right top, #5278b1, #4e72cd, #6366e1, #8b50ec, #bb12eb);
+}
+
+/* background end */
+
 
 /*  centering application */
 
@@ -29,6 +41,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5vw;
+}
+
+.done {
+    margin-left: 5vw;
+    border-top: 28px solid #5ec037;
+}
+
+.done p:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.drop p {
+    border-radius: 0;
+}
+
+.done p:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.done .todos {
+    min-height: 50px;
+}
+
+@media only screen and (max-width: 480px) {
+    .application-holder{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .done {
+        margin-left: 0;
+        margin-top: 2vh;
+    }
 }
 
 /* centering application */
