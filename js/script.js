@@ -48,6 +48,7 @@ let sort = document.querySelector('.sort>i');
 let addTaskButton = document.querySelector('#addTaskButton');
 let taskList = document.querySelector('.todos');
 
+
 // Clear task input
 taskClear.addEventListener('click', () => {
     taskInput.value = '';
@@ -61,16 +62,19 @@ addTaskButton.addEventListener('click', () => {
         todoList.push(task);
 
         // Create task
-        createTask(task);
+        createTask(task, todoList.length);
 
         // Remove task when clicking 'x' icon
-        deleteTask();
+        deleteTask(todoList.length);
 
         // clear input bar after creating task
         taskInput.value = '';
+
     } else {
+
         let popup = document.getElementById('myPopup');
         popup.classList.toggle('show');
+
         setTimeout(() => {
             popup.classList.remove('show');
         }, 3000);
@@ -88,12 +92,17 @@ addTaskButton.addEventListener('click', () => {
             taskList.innerHTML = '';
 
             // Iterate sorted items and display them
-            todoList.forEach(item => {
-                createTask(item);
-                deleteTask();
+            todoList.forEach((item, index) => {
+
+                // create new task 
+                createTask(item, index);
+
+                // delete task by id
+                deleteTask(index);
             });
 
-        } else {
+        } 
+        else {
             sort.classList.remove('fa-sort-amount-desc');
             sort.classList.add('fa-sort-amount-asc');
 
@@ -104,44 +113,42 @@ addTaskButton.addEventListener('click', () => {
             taskList.innerHTML = '';
 
             // Iterate sorted items and display them
-            todoList.forEach(item => {
-                // Create task
-                createTask(item);
+            todoList.forEach((item, index) => {
 
-                // Remove task when clicking 'x' icon
-                deleteTask();
+                // create new task 
+                createTask(item, index);
+
+                // delete task by id
+                deleteTask(index);
             });
         }
     });
+
 });
 
-
 // Delete task
-function deleteTask() {
-    let deleteTask = document.querySelectorAll('.delete');
-    deleteTask.forEach(item => {
-        item.addEventListener('click', () => {
-            let index = todoList.indexOf(item.parentElement.innerText);
-            console.log(todoList);
-            if (index > -1) {
-                console.log(index);
-                todoList.splice(index, 1);
-            }
-            item.parentElement.remove();
-        });
+function deleteTask(idNumber) {
+    let deleteTaskById = document.querySelector('#task' + (idNumber) + '>.delete');
+    deleteTaskById.addEventListener('click', () => {
+        deleteTaskById.parentElement.remove();
+        let index = todoList.indexOf(deleteTaskById.parentElement.innerText);
+        console.log(todoList);
+        if (index > -1) {
+            todoList.splice(index, 1);
+        }
+        console.log('task' + index + ' deleted');
     });
 }
 
 // Create task
-function createTask(item) {
+function createTask(item, index) {
     let taskItem = document.createElement('p');
     taskItem.classList.add('todo');
 
     // drag and drop
     taskItem.draggable = "true";
     // taskItem.ondragstart = "drag(event)";
-    taskItem.id = 'task' + todoList.length;
-
+    taskItem.id = 'task' + index;
 
     taskItem.innerHTML = item;
     let removeTask = document.createElement('i');
