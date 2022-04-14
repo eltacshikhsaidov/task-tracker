@@ -152,8 +152,7 @@ function createTask(item, index) {
 
     taskItem.innerHTML = item;
     let removeTask = document.createElement('i');
-    removeTask.classList.add('fa', 'delete');
-    removeTask.innerHTML = '&#10005;';
+    removeTask.classList.add('fa', 'fa-times', 'delete');
     taskItem.appendChild(removeTask);
     taskList.appendChild(taskItem);
 }
