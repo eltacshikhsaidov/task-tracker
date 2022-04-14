@@ -77,6 +77,7 @@ body {
         margin-left: 0;
         margin-top: 2vh;
     }
+
 }
 
 /* centering application */
@@ -244,7 +245,7 @@ ul {
 /* The actual popup */
 .popup .popuptext {
     visibility: hidden;
-    width: 30vw;
+    width: 24vw;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -254,8 +255,8 @@ ul {
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -51vw;
-    margin-bottom: 3vh;
+    margin-left: -33vw;
+    margin-bottom: 4vh;
 }
   
 /* Popup arrow */
@@ -290,23 +291,17 @@ ul {
 
 /* displaying popup properly */
 
-@media only screen and (max-width: 650px) {
+/* @media only screen and (max-width: 650px) {
     .popup .popuptext {
         margin-left: -51vw;
         margin-bottom: 3vh;
     }
-}
+} */
 
-@media only screen and (max-width: 938px ) {
+@media only screen and (max-width: 480px ) {
     .popup .popuptext {
-        margin-left: -49vw;
-        margin-bottom: 3vh;
-    }
-}
-
-@media only screen and (min-width: 939px ) {
-    .popup .popuptext {
-        margin-left: -33vw;
-        margin-bottom: 3vh;
+        margin-left: -46vw;
+        margin-bottom: 4vh;
+        width: 35vw;
     }
 }
