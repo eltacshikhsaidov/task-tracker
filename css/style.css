@@ -65,6 +65,8 @@ body {
 
 .done .todos {
     min-height: 50px;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
 }
 
 @media only screen and (max-width: 480px) {
@@ -290,13 +292,6 @@ ul {
 }
 
 /* displaying popup properly */
-
-/* @media only screen and (max-width: 650px) {
-    .popup .popuptext {
-        margin-left: -51vw;
-        margin-bottom: 3vh;
-    }
-} */
 
 @media only screen and (max-width: 480px ) {
     .popup .popuptext {

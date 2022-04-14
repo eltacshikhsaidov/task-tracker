@@ -1,21 +1,21 @@
 // Disable inspect option for browser
-// document.addEventListener('contextmenu', function(e) {
-//     e.preventDefault();
-//     alert('inspect option is disabled!')
-// });
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('inspect option is disabled!')
+});
 
-// document.onkeydown = function (e) {
-//     // disable F12 key
-//     if(e.keyCode == 123) {
-//         alert('F12 disabled!')
-//         return false;
-//     }
-//     // disable U key
-//     if(e.ctrlKey && e.keyCode == 85) {
-//         alert('ctrl+U disabled!');
-//         return false;
-//     }
-// }
+document.onkeydown = function (e) {
+    // disable F12 key
+    if(e.keyCode == 123) {
+        alert('F12 disabled!')
+        return false;
+    }
+    // disable U key
+    if(e.ctrlKey && e.keyCode == 85) {
+        alert('ctrl+U disabled!');
+        return false;
+    }
+}
 
 // Drag and drop source code: https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js
 function onDragStart(event) {
@@ -38,6 +38,7 @@ function onDrop(event) {
     const index = todoList.indexOf(draggableElement.innerText);
     if (index > -1) {
         todoList.splice(index, 1);
+        console.log('task' + index + ' deleted');
     }
     
 }
@@ -101,8 +102,7 @@ addTaskButton.addEventListener('click', () => {
                 deleteTask(index);
             });
 
-        } 
-        else {
+        } else {
             sort.classList.remove('fa-sort-amount-desc');
             sort.classList.add('fa-sort-amount-asc');
 
@@ -133,10 +133,11 @@ function deleteTask(idNumber) {
         deleteTaskById.parentElement.remove();
         let index = todoList.indexOf(deleteTaskById.parentElement.innerText);
         console.log(todoList);
+
         if (index > -1) {
             todoList.splice(index, 1);
+            console.log('task' + index + ' deleted');
         }
-        console.log('task' + index + ' deleted');
     });
 }
 
@@ -147,12 +148,13 @@ function createTask(item, index) {
 
     // drag and drop
     taskItem.draggable = "true";
-    // taskItem.ondragstart = "drag(event)";
+    
     taskItem.id = 'task' + index;
 
     taskItem.innerHTML = item;
     let removeTask = document.createElement('i');
     removeTask.classList.add('fa', 'fa-times', 'delete');
+
     taskItem.appendChild(removeTask);
     taskList.appendChild(taskItem);
 }
