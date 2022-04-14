@@ -1,21 +1,21 @@
 // Disable inspect option for browser
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    alert('inspect option is disabled!')
-});
+// document.addEventListener('contextmenu', function(e) {
+//     e.preventDefault();
+//     alert('inspect option is disabled!')
+// });
 
-document.onkeydown = function (e) {
-    // disable F12 key
-    if(e.keyCode == 123) {
-        alert('F12 disabled!')
-        return false;
-    }
-    // disable U key
-    if(e.ctrlKey && e.keyCode == 85) {
-        alert('ctrl+U disabled!');
-        return false;
-    }
-}
+// document.onkeydown = function (e) {
+//     // disable F12 key
+//     if(e.keyCode == 123) {
+//         alert('F12 disabled!')
+//         return false;
+//     }
+//     // disable U key
+//     if(e.ctrlKey && e.keyCode == 85) {
+//         alert('ctrl+U disabled!');
+//         return false;
+//     }
+// }
 
 // Drag and drop source code: https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js
 function onDragStart(event) {
