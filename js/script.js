@@ -58,22 +58,79 @@ taskClear.addEventListener('click', () => {
 // Add task
 let todoList = [];
 addTaskButton.addEventListener('click', () => {
+    wholeAction();
+});
+
+document.addEventListener('keypress', (e) => {
+    if(e.keyCode === 13){
+        wholeAction();
+    }
+});
+
+// Delete task
+function deleteTask(idNumber) {
+    let deleteTaskById = document.querySelector('#task' + (idNumber) + '>.delete');
+    deleteTaskById.addEventListener('click', () => {
+        deleteTaskById.parentElement.remove();
+        let index = todoList.indexOf(deleteTaskById.parentElement.innerText);
+        console.log(todoList);
+
+        if (index > -1) {
+            todoList.splice(index, 1);
+            console.log('task' + index + ' deleted');
+        }
+    });
+}
+
+// Create task
+function createTask(item, index) {
+    let taskItem = document.createElement('p');
+    taskItem.classList.add('todo');
+
+    // drag and drop
+    taskItem.draggable = "true";
+    
+    taskItem.id = 'task' + index;
+
+    taskItem.innerHTML = item;
+    let removeTask = document.createElement('i');
+    removeTask.classList.add('fa', 'fa-times', 'delete');
+
+    taskItem.appendChild(removeTask);
+    taskList.appendChild(taskItem);
+}
+
+function wholeAction() {
     let task = taskInput.value;
     if(task !== ''){
-        todoList.push(task);
 
-        // Create task
-        createTask(task, todoList.length);
+        if (task.length > 30) {
+            let popup = document.getElementById('myPopup');
+            popup.innerText = 'Task is too long!';
+            popup.classList.toggle('show');
 
-        // Remove task when clicking 'x' icon
-        deleteTask(todoList.length);
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 3000);
+        } else {
 
-        // clear input bar after creating task
-        taskInput.value = '';
+            // Add task to array
+            todoList.push(task);
+
+            // Create task
+            createTask(task, todoList.length);
+
+            // Remove task when clicking 'x' icon
+            deleteTask(todoList.length);
+
+            // clear input bar after creating task
+            taskInput.value = '';
+        }
 
     } else {
 
         let popup = document.getElementById('myPopup');
+        popup.innerText = 'Task is empty!';
         popup.classList.toggle('show');
 
         setTimeout(() => {
@@ -123,38 +180,4 @@ addTaskButton.addEventListener('click', () => {
             });
         }
     });
-
-});
-
-// Delete task
-function deleteTask(idNumber) {
-    let deleteTaskById = document.querySelector('#task' + (idNumber) + '>.delete');
-    deleteTaskById.addEventListener('click', () => {
-        deleteTaskById.parentElement.remove();
-        let index = todoList.indexOf(deleteTaskById.parentElement.innerText);
-        console.log(todoList);
-
-        if (index > -1) {
-            todoList.splice(index, 1);
-            console.log('task' + index + ' deleted');
-        }
-    });
-}
-
-// Create task
-function createTask(item, index) {
-    let taskItem = document.createElement('p');
-    taskItem.classList.add('todo');
-
-    // drag and drop
-    taskItem.draggable = "true";
-    
-    taskItem.id = 'task' + index;
-
-    taskItem.innerHTML = item;
-    let removeTask = document.createElement('i');
-    removeTask.classList.add('fa', 'fa-times', 'delete');
-
-    taskItem.appendChild(removeTask);
-    taskList.appendChild(taskItem);
 }
