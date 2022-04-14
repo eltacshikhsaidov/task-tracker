@@ -1,21 +1,21 @@
 // Disable inspect option for browser
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    alert('inspect option is disabled!')
-});
+// document.addEventListener('contextmenu', function(e) {
+//     e.preventDefault();
+//     alert('inspect option is disabled!')
+// });
 
-document.onkeydown = function (e) {
-    // disable F12 key
-    if(e.keyCode == 123) {
-        alert('F12 disabled!')
-        return false;
-    }
-    // disable U key
-    if(e.ctrlKey && e.keyCode == 85) {
-        alert('ctrl+U disabled!');
-        return false;
-    }
-}
+// document.onkeydown = function (e) {
+//     // disable F12 key
+//     if(e.keyCode == 123) {
+//         alert('F12 disabled!')
+//         return false;
+//     }
+//     // disable U key
+//     if(e.ctrlKey && e.keyCode == 85) {
+//         alert('ctrl+U disabled!');
+//         return false;
+//     }
+// }
 
 // Drag and drop source code: https://www.digitalocean.com/community/tutorials/js-drag-and-drop-vanilla-js
 function onDragStart(event) {
@@ -33,6 +33,13 @@ function onDrop(event) {
     const dropzoneElement = event.target;
     dropzoneElement.appendChild(draggableElement);
     event.dataTransfer.clearData();
+    
+    // remove element after dragging from array
+    const index = todoList.indexOf(draggableElement.innerText);
+    if (index > -1) {
+        todoList.splice(index, 1);
+    }
+    
 }
 
 let taskClear = document.querySelector('#taskClear');
@@ -133,7 +140,7 @@ function createTask(item) {
     // drag and drop
     taskItem.draggable = "true";
     // taskItem.ondragstart = "drag(event)";
-    taskItem.id = 'task' + todoList.indexOf(item);
+    taskItem.id = 'task' + todoList.length;
 
 
     taskItem.innerHTML = item;
