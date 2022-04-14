@@ -19,19 +19,14 @@ Task tracker program for algoritmika course. final project for the Module 2
 
 # User Interface (UI)
 
-
-
-
+![gif](https://github.com/eltacshikhsaidov/task-tracker/blob/master/icons/app.gif?raw=true)
 
 # HTML and CSS validation
 ## HTML
-<img src="#" alt="html validation">
+![image](https://user-images.githubusercontent.com/56788221/163397148-7518002e-71cb-4d9c-a67a-cf1e7f287b48.png)
 
 ## CSS
-<img src="#" alt="css validation">
-
-# Search Engine Optimization (SEO)
-<img src="#" alt="seo">
+![image](https://user-images.githubusercontent.com/56788221/163397514-93d20a2a-ff1a-4ba3-ab81-4804a689a434.png)
 
 # Thank you for your attention!
 
