@@ -7,7 +7,7 @@ Task tracker program for algoritmika course. final project for the Module 2
 - ```remove``` task
 - ```add``` task
 - ```drag``` and ```drop```
-- max length for task is ```15``` characters
+- max length for task is ```30``` characters
 - You ```can not add``` an empty task (it will show you popup with text ```"Task is empty!"```)
 - You ```can not add``` big text as a task (it will show you popup with text ```"Task is too long!"```)
 - You can add task either clicking ```add``` button or ```"Enter"``` key
